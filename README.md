@@ -1,5 +1,12 @@
 # React typescript boilerplate
 
+## 설치 방법
+```cli
+npm install
+npm start # development
+npm build # production
+```
+
 ## 설치되어 있는 플러그인
 
 - typescript
