@@ -5,11 +5,12 @@
         "es6": true
     },
     "extends": [
-        "airbnb",
-        "prettier:recommends",
-        "plugin:react/recommended",
+        "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:react-hooks/recommended"
+        "airbnb",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:prettier/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "plugins": ["react", "react-hooks"]
