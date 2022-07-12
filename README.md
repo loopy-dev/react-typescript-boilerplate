@@ -20,25 +20,55 @@ npm build # production
 
 ## ESLint
 
-- airbnb rule 적용
+### 설치되어 있는 extensions 및 plugins
+
+- airbnb
+- eslint:recommended
+- prettier
+- react-hooks
+- @typescript-eslint
+- plugin:prettier
+
+
+### 상세 rules
 
 ```json
 {
-    "env": {
-        "browser": true,
-        "node": true,
-        "es6": true
-    },
-    "extends": [
-        "airbnb",
-        "prettier:recommends",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:react-hooks/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["react", "react-hooks"]
+  "linebreak-style": "off",
+  "react-hooks/rules-of-hooks": "error",
+  "react-hooks/exhaustive-deps": "warn",
+  "react/jsx-filename-extension": [
+    1,
+    {
+      "extensions": [
+        ".js",
+        ".jsx",
+        "tsx"
+      ]
+    }
+  ],
+  "import/no-unresolved": "off",
+  "react/function-component-definition": [
+    "error",
+    {
+      "namedComponents": "arrow-function",
+      "unnamedComponents": "arrow-function"
+    }
+  ],
+  "react/react-in-jsx-scope": "off",
+  "react/jsx-props-no-spreading": "off",
+  "react/require-default-props": "off",
+  "import/no-extraneous-dependencies": [
+    "error",
+    {
+      "devDependencies": true
+    }
+  ],
+  "import/extensions": "off",
+  "@typescript-eslint/no-non-null-assertion": "off",
+  "prettier/prettier": ["error", { "endOfLine": "auto" }]
 }
+
 ```
 
 ## Prettier
@@ -50,7 +80,8 @@ npm build # production
   "useTabs": false,
   "tabWidth": 2,
   "trailingComma": "all",
-  "printWidth": 80
+  "printWidth": 80,
+  "endOfLine": "auto"
 }
 
 ```
