@@ -2,71 +2,60 @@
 
 ## 설치 방법
 ```cli
-npm install
-npm start # development
-npm build # production
+yarn install
+yarn start # development
+yarn build # production build
 ```
 
-## 설치되어 있는 플러그인
+## 설치되어 있는 개발 환경
 
-- typescript
-- webpack
-- webpack-dev-server
-- webpack-cli
-- eslint
-- prettier
-- sass
-- postcss
+- `typescript`
+- `webpack`
+- `webpack-dev-server`
+- `webpack-cli`
+- `babel`
+- `eslint`
+- `prettier`
+- `react`
+- `react-dom`
+- `sass`
+- `postcss`
 
 ## ESLint
 
-### 설치되어 있는 extensions 및 plugins
+### plugins
 
-- airbnb
-- eslint:recommended
-- prettier
-- react-hooks
-- @typescript-eslint
-- plugin:prettier
+- `prettier`
+- `react-hooks`
+- `@typescript-eslint`
+- `react`
+- `react-hooks`
 
+### extends
 
-### 상세 rules
+- `eslint:recommended`
+- `plugin:@typescript-eslint/recommended`
+- `plugin:react/recommended`
+- `plugin:react-hooks/recommended`
+- `plugin:prettier/recommended`
+
+### rules
 
 ```json
 {
-  "linebreak-style": "off",
-  "react-hooks/rules-of-hooks": "error",
-  "react-hooks/exhaustive-deps": "warn",
-  "react/jsx-filename-extension": [
-    1,
-    {
-      "extensions": [
-        ".js",
-        ".jsx",
-        "tsx"
-      ]
-    }
-  ],
-  "import/no-unresolved": "off",
-  "react/function-component-definition": [
-    "error",
-    {
-      "namedComponents": "arrow-function",
-      "unnamedComponents": "arrow-function"
-    }
-  ],
   "react/react-in-jsx-scope": "off",
   "react/jsx-props-no-spreading": "off",
   "react/require-default-props": "off",
-  "import/no-extraneous-dependencies": [
-    "error",
-    {
-      "devDependencies": true
-    }
-  ],
+  "react/self-closing-comp": ["error", {
+    "component": true
+  }],
+  "react/function-component-definition": ["error", {
+    "namedComponents": "function-declaration",
+    "unnamedComponents": "arrow-function"
+  }],
+  "import/no-unresolved": "off",
   "import/extensions": "off",
-  "@typescript-eslint/no-non-null-assertion": "off",
-  "prettier/prettier": ["error", { "endOfLine": "auto" }]
+  "@typescript-eslint/no-non-null-assertion": "off"
 }
 
 ```
@@ -81,7 +70,6 @@ npm build # production
   "tabWidth": 2,
   "trailingComma": "all",
   "printWidth": 80,
-  "endOfLine": "auto"
+  "endOfLine": "lf"
 }
-
 ```
