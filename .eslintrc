@@ -4,12 +4,18 @@
     "node": true,
     "es6": true
   },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "tsconfigRootDir": "./",
+    "project": ["./tsconfig.json"]
+  },
   "plugins": [
     "prettier", "@typescript-eslint", "react", "react-hooks"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
@@ -27,7 +33,8 @@
     }],
     "import/no-unresolved": "off",
     "import/extensions": "off",
-    "@typescript-eslint/no-non-null-assertion": "off"
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "no-console": "warn"
   },
   "settings": {
     "react": {
@@ -53,6 +60,5 @@
         "@typescript-eslint/no-var-requires": "off"
       }
     }
-  ],
-  "parser": "@typescript-eslint/parser"
+  ]
 }
