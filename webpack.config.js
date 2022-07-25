@@ -22,15 +22,7 @@ module.exports = {
     rules: [
       {
         test: /\.(t|j)sx?$/,
-        use: [
-          'babel-loader',
-          {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: true,
-            },
-          },
-        ],
+        use: ['babel-loader'],
         exclude: /node_modules/,
       },
       {
@@ -50,7 +42,14 @@ module.exports = {
         },
       ],
     }),
-    new ForkTsCheckerWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+      },
+    }),
   ],
   devServer: {
     port: 3000,
