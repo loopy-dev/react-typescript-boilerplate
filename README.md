@@ -26,7 +26,6 @@ yarn build # production build
 ### plugins
 
 - `prettier`
-- `react-hooks`
 - `@typescript-eslint`
 - `react`
 - `react-hooks`
