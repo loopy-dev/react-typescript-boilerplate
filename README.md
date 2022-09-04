@@ -13,13 +13,62 @@ yarn build # production build
 - `webpack`
 - `webpack-dev-server`
 - `webpack-cli`
-- `babel`
+- `@swc/core`
+- `swc-loader`
 - `eslint`
 - `prettier`
 - `react`
 - `react-dom`
 - `sass`
 - `postcss`
+
+### webpack 환경 관련
+
+이 boilerplate는 더이상 babel을 사용하지 않습니다. rust로 쓰여진 swc를 도입하여, babel 보다 훨씬 빠른 빌드 환경을 구축합니다.  
+
+<details>
+<summary>이전 babel 환경</summary>
+
+`webpack.config.js`에서 `babel-loader` 설정이 필요합니다.  
+
+```json
+// package.json
+{
+  // ...
+  "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@babel/plugin-transform-runtime": "^7.18.0",
+    "@babel/preset-env": "^7.18.0",
+    "@babel/preset-react": "^7.17.12",
+    "@babel/preset-typescript": "^7.17.12",
+    "@babel/runtime-corejs3": "^7.18.0"
+  }
+}
+```
+
+
+```json
+// .babelrc
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      { "targets": { "browsers": ["last 2 versions", ">= 5% in KR"] } }
+    ],
+    ["@babel/preset-react", {"runtime": "automatic"}],
+    "@babel/typescript"
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-runtime", {
+    "corejs": 3
+    }
+    ]
+  ]
+}
+
+```
+
+</details>
 
 ## ESLint
 
