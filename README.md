@@ -25,16 +25,16 @@ yarn build # production build
 ### webpack 환경 관련
 
 이 boilerplate는 더이상 babel을 사용하지 않습니다. rust로 쓰여진 swc를 도입하여, babel 보다 훨씬 빠른 빌드 환경을 구축합니다.  
+또한, React에서 자주 사용되는 `emotion` 패키지와의 호환성 테스트를 완료하였습니다.  
 
 <details>
 <summary>이전 babel 환경</summary>
 
 `webpack.config.js`에서 `babel-loader` 설정이 필요합니다.  
 
+`package.json`
 ```json
-// package.json
 {
-  // ...
   "devDependencies": {
     "@babel/core": "^7.18.0",
     "@babel/plugin-transform-runtime": "^7.18.0",
@@ -46,9 +46,8 @@ yarn build # production build
 }
 ```
 
-
+`.babelrc`
 ```json
-// .babelrc
 {
   "presets": [
     [
