@@ -9,56 +9,29 @@
     "tsconfigRootDir": "./",
     "project": ["./tsconfig.json"]
   },
-  "plugins": [
-    "prettier", "@typescript-eslint", "react", "react-hooks"
-  ],
+  "plugins": ["prettier", "@typescript-eslint"],
   "extends": [
-    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
+    "airbnb",
+    "airbnb-typescript",
     "plugin:prettier/recommended"
   ],
   "rules": {
-    "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
     "react/self-closing-comp": ["error", {
       "component": true
     }],
-    "react/function-component-definition": ["error", {
-      "namedComponents": "function-declaration",
-      "unnamedComponents": "arrow-function"
-    }],
-    "import/no-unresolved": "off",
-    "import/extensions": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
     "no-console": "warn"
   },
   "settings": {
     "react": {
       "version": "detect"
-    }
-  },
-  "overrides": [
-    {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
-      "rules": {
-        "no-undef": "off",
-        "no-unused-vars": "off"
-      }
     },
-    {
-      "files": [
-        "*.config.js"
-      ],
-      "rules": {
-        "@typescript-eslint/no-var-requires": "off"
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
       }
     }
-  ]
+  }
 }
