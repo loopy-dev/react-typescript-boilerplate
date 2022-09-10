@@ -18,11 +18,7 @@
   ],
   "rules": {
     "react/jsx-props-no-spreading": "off",
-    "react/require-default-props": "off",
-    "react/self-closing-comp": ["error", {
-      "component": true
-    }],
-    "no-console": "warn"
+    "react/require-default-props": "off"
   },
   "settings": {
     "react": {
