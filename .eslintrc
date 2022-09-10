@@ -9,11 +9,11 @@
     "tsconfigRootDir": "./",
     "project": ["./tsconfig.json"]
   },
-  "plugins": ["prettier", "@typescript-eslint"],
   "extends": [
     "plugin:@typescript-eslint/recommended",
     "airbnb",
     "airbnb-typescript",
+    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
   ],
   "rules": {
