@@ -7,13 +7,16 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "tsconfigRootDir": "./",
-    "project": ["./tsconfig.json"]
+    "project": [
+      "./tsconfig.json"
+    ]
   },
   "extends": [
-    "plugin:@typescript-eslint/recommended",
     "airbnb",
     "airbnb-typescript",
+    "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
   "rules": {
