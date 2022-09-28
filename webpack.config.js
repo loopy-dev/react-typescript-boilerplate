@@ -15,6 +15,7 @@ module.exports = {
   },
   entry: './src/index.tsx',
   output: {
+    filename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     clean: true,
@@ -55,6 +56,12 @@ module.exports = {
   devServer: {
     port: 3000,
     hot: true,
+    host: 'localhost',
     historyApiFallback: true,
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 };
