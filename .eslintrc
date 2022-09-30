@@ -17,11 +17,10 @@
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "prettier"
   ],
   "rules": {
     "react/jsx-props-no-spreading": "off",
-    "react/prop-types": "off",
     "react/require-default-props": "off"
   },
   "settings": {
