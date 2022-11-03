@@ -75,67 +75,10 @@ yarn build # production build
 
 ## ESLint
 
-현재는 airbnb-typescript rule을 사용합니다.  
-`settings` 설정을 통해 절대 경로 환경에서도 파일 확장자명의 사용이 필요 없도록 하였습니다.
+자체적으로 설정한 eslint rule을 사용하고 있습니다.
 
-```json
-  "settings": {
-    "react": {
-      "version": "detect"
-    },
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true
-      }
-    }
-  }
-```
-
-<details>
-<summary>이전 eslint 설정</summary>
-
-### plugins
-
-- `prettier`
-- `@typescript-eslint`
-- `react`
-- `react-hooks`
-
-### extends
-
-- `eslint:recommended`
-- `plugin:@typescript-eslint/recommended`
-- `plugin:react/recommended`
-- `plugin:react-hooks/recommended`
-- `plugin:prettier/recommended`
-
-### rules
-
-```json
-{
-  "react/react-in-jsx-scope": "off",
-  "react/jsx-props-no-spreading": "off",
-  "react/require-default-props": "off",
-  "react/self-closing-comp": [
-    "error",
-    {
-      "component": true
-    }
-  ],
-  "react/function-component-definition": [
-    "error",
-    {
-      "namedComponents": "function-declaration",
-      "unnamedComponents": "arrow-function"
-    }
-  ],
-  "import/no-unresolved": "off",
-  "import/extensions": "off",
-  "@typescript-eslint/no-non-null-assertion": "off"
-}
-```
-
-</details>
+- 기존에 사용하던 `airbnb-typescript` rule에서 불필요한 style 관련 포맷이 너무나 많음을 확인하였습니다.
+- 이에 따라, 자체적으로 필요한 부분만 사용하는 것으로 결정하였습니다.
 
 ## Prettier
 
@@ -145,7 +88,7 @@ yarn build # production build
   "semi": true,
   "useTabs": false,
   "tabWidth": 2,
-  "trailingComma": "all",
+  "trailingComma": "es5",
   "printWidth": 80,
   "endOfLine": "lf"
 }
