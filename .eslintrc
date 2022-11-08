@@ -41,6 +41,7 @@
     ],
     "@typescript-eslint/no-unused-vars": ["error", { "ignoreRestSiblings": true }],
     "@typescript-eslint/no-use-before-define": "off",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
     "react/function-component-definition": [
       "error",
       {
@@ -48,10 +49,22 @@
       }
     ],
     "react/jsx-props-no-spreading": "off",
+    "react/jsx-max-props-per-line": ["error", { "maximum": 1, "when": "multiline" }],
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "multiline": "last",
+        "reservedFirst": true
+      }
+    ],
     "react/no-unknown-property": ["error", { "ignore": ["css"] }],
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "react/self-closing-comp": "error",
+    "spaced-comment": "warn"
   },
   "settings": {
     "react": {
