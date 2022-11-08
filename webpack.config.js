@@ -2,6 +2,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (webpackEnv, argv) => {
   const isEnvDevelopment = argv.mode === 'development';
@@ -32,7 +33,12 @@ module.exports = (webpackEnv, argv) => {
         },
         {
           test: /\.s?css$/,
-          use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+          use: [
+            isEnvProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+            { loader: 'css-loader', options: { modules: true } },
+            'postcss-loader',
+            'sass-loader',
+          ],
         },
         {
           test: /\.svg$/,
@@ -101,6 +107,9 @@ module.exports = (webpackEnv, argv) => {
             { file: '**/src/setupTests.*' },
           ],
         },
+      }),
+      new MiniCssExtractPlugin({
+        filename: 'assets/css/[name].[contenthash:8].css',
       }),
     ],
     devServer: {
