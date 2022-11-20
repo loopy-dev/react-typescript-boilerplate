@@ -20,6 +20,7 @@ module.exports = (webpackEnv, argv) => {
     entry: './src/index.tsx',
     output: {
       filename: 'static/js/[name].[contenthash:8].js',
+      chunkFilename: 'static/js/[name].[contenthash:8].js',
       path: path.resolve(__dirname, 'build'),
       publicPath: '/',
       clean: true,
