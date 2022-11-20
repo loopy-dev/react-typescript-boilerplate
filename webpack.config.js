@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (webpackEnv, argv) => {
   const isEnvDevelopment = argv.mode === 'development';
@@ -20,6 +21,7 @@ module.exports = (webpackEnv, argv) => {
     entry: './src/index.tsx',
     output: {
       filename: 'static/js/[name].[contenthash:8].js',
+      chunkFilename: 'static/js/[name].[contenthash:8].js',
       path: path.resolve(__dirname, 'build'),
       publicPath: '/',
       clean: true,
@@ -63,31 +65,26 @@ module.exports = (webpackEnv, argv) => {
       ],
     },
     plugins: [
-      new HtmlWebpackPlugin(
-        Object.assign(
-          {},
-          {
-            inject: true,
-            template: path.resolve(__dirname, 'public/index.html'),
-          },
-          isEnvProduction
-            ? {
-                minify: {
-                  removeComments: true,
-                  collapseWhitespace: true,
-                  removeRedundantAttributes: true,
-                  useShortDoctype: true,
-                  removeEmptyAttributes: true,
-                  removeStyleLinkTypeAttributes: true,
-                  keepClosingSlash: true,
-                  minifyJS: true,
-                  minifyCSS: true,
-                  minifyURLs: true,
-                },
-              }
-            : undefined
-        )
-      ),
+      new HtmlWebpackPlugin({
+        inject: true,
+        template: path.resolve(__dirname, 'public/index.html'),
+        ...(isEnvProduction
+          ? {
+              minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
+              },
+            }
+          : undefined),
+      }),
       new ForkTsCheckerWebpackPlugin({
         async: isEnvDevelopment,
         typescript: {
@@ -110,6 +107,13 @@ module.exports = (webpackEnv, argv) => {
       }),
       new MiniCssExtractPlugin({
         filename: 'assets/css/[name].[contenthash:8].css',
+      }),
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        reportFilename: 'bundle-report.html',
+        openAnalyzer: false,
+        generateStatsFile: true,
+        statsFilename: 'bundle-stats.json',
       }),
     ],
     devServer: {
