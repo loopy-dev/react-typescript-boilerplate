@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (webpackEnv, argv) => {
   const isEnvDevelopment = argv.mode === 'development';
@@ -111,6 +112,13 @@ module.exports = (webpackEnv, argv) => {
       }),
       new MiniCssExtractPlugin({
         filename: 'assets/css/[name].[contenthash:8].css',
+      }),
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        reportFilename: 'bundle-report.html',
+        openAnalyzer: false,
+        generateStatsFile: true,
+        statsFilename: 'bundle-stats.json',
       }),
     ],
     devServer: {
