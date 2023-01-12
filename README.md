@@ -1,6 +1,6 @@
 # React typescript boilerplate
 
-## 설치 방법
+## Install
 
 ```cli
 yarn install
@@ -8,7 +8,7 @@ yarn start # development
 yarn build # production build
 ```
 
-## 설치되어 있는 개발 환경
+## dev dependencies
 
 - `typescript`
 - `webpack`
@@ -23,15 +23,15 @@ yarn build # production build
 - `sass`
 - `postcss`
 
-### webpack 환경 관련
+### about react compiler
 
-이 boilerplate는 더이상 babel을 사용하지 않습니다. rust로 쓰여진 swc를 도입하여, babel 보다 훨씬 빠른 빌드 환경을 구축합니다.  
-또한, React에서 자주 사용되는 `emotion` 패키지와의 호환성 테스트를 완료하였습니다.
+This boilerplate no longer uses babel. Introducing swc, written in rust, to build a much faster build environment than babel.
+In addition, we have completed a compatibility test with the emotion package, which is often used in React.
 
 <details>
-<summary>이전 babel 환경</summary>
+<summary>Babel config(deprecated)</summary>
 
-`webpack.config.js`에서 `babel-loader` 설정이 필요합니다.
+You need to configure `babel-loader` in `webpack.config.js`.
 
 `package.json`
 
@@ -75,10 +75,10 @@ yarn build # production build
 
 ## ESLint
 
-자체적으로 설정한 eslint rule을 사용하고 있습니다.
+We are using our own eslint rules.
 
-- 기존에 사용하던 `airbnb-typescript` rule에서 불필요한 style 관련 포맷이 너무나 많음을 확인하였습니다.
-- 이에 따라, 자체적으로 필요한 부분만 사용하는 것으로 결정하였습니다.
+- We have confirmed that there are too many unnecessary style-related formats in the existing `airbnb-typescript` rule.
+- Therefore, We decided to use only the necessary parts.
 
 ## Prettier
 
